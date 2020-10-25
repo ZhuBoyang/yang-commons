@@ -12,6 +12,18 @@
   <description>a project of tools for developing</description>
   <url>https://github.com/ZhuBoyang/yang-commons</url>
 
+  <licenses>
+    <license>
+      <name>The Apache Software License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/ZhuBoyang</url>
+    <connection>https://github.com/ZhuBoyang/yang-commons.git</connection>
+  </scm>
+
   <developers>
     <developer>
       <name>Barry Steve</name>
@@ -62,7 +74,6 @@
 
   <build>
     <plugins>
-      <!-- Source -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -76,7 +87,6 @@
           </execution>
         </executions>
       </plugin>
-      <!-- Javadoc -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -90,14 +100,10 @@
           </execution>
         </executions>
       </plugin>
-      <!-- GPG -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.6</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
         <executions>
           <execution>
             <id>sign-artifacts</id>
