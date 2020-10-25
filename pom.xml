@@ -6,14 +6,25 @@
 
   <groupId>online.yangcloud</groupId>
   <artifactId>yang-commons</artifactId>
-  <version>1.0.SNAPSHOTS</version>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>yang-commons</name>
+  <description>a project of tools for developing</description>
+  <url>https://github.com/ZhuBoyang/yang-commons</url>
+
+  <developers>
+    <developer>
+      <name>Barry Steve</name>
+      <email>zhuboyang1996@foxmail.com</email>
+    </developer>
+  </developers>
 
   <properties>
-    <org.springframework.version>5.0.11.RELEASE</org.springframework.version>
+    <org.springframework.version>5.2.8.RELEASE</org.springframework.version>
     <fastjson.version>1.2.60</fastjson.version>
     <hutool.version>5.3.10</hutool.version>
   </properties>
-
+  <!--  https://oss.sonatype.org/service/local/staging/deploy/maven2/online/yangcloud/yang-commons/maven-metadata.xml-->
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -48,5 +59,56 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+
+  <build>
+    <plugins>
+      <!-- Source -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Javadoc -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- GPG -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
