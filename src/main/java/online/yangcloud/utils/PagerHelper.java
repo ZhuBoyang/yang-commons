@@ -1,5 +1,7 @@
 package online.yangcloud.utils;
 
+import cn.hutool.json.JSONUtil;
+
 import java.util.List;
 
 /**
@@ -31,46 +33,36 @@ public class PagerHelper<T> {
      */
     private List<T> data;
 
-    PagerHelper() {
+    public PagerHelper() {
     }
 
-    PagerHelper(Integer offset, Integer count, Long total, List<T> data) {
+    public PagerHelper<?> setOffset(Integer offset) {
         this.offset = offset;
+        return this;
+    }
+
+    public PagerHelper<?> setCount(Integer count) {
         this.count = count;
+        return this;
+    }
+
+    public PagerHelper<?> setTotal(Long total) {
         this.total = total;
+        return this;
+    }
+
+    public PagerHelper<?> setData(List<T> data) {
         this.data = data;
+        return this;
     }
 
-    public Integer getOffset() {
-        return offset;
+    @Override
+    public String toString() {
+        return "PagerUtilHelper{" +
+                "offset=" + offset +
+                ", count=" + count +
+                ", total=" + total +
+                ", data=" + JSONUtil.toJsonStr(data) +
+                '}';
     }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
-    }
-
-    public List<T> getData() {
-        return data;
-    }
-
-    public void setData(List<T> data) {
-        this.data = data;
-    }
-
 }
