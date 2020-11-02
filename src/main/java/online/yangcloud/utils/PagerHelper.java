@@ -56,6 +56,22 @@ public class PagerHelper<T> {
         return this;
     }
 
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public List<T> getData() {
+        return data;
+    }
+
     @Override
     public String toString() {
         return "PagerUtilHelper{" +
