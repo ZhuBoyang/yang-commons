@@ -10,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * 配置 CORS 跨域
  *
  * @author zhuby
- * created on 2020/10/19 9:20 下午
+ * @since 2020/10/19 9:20 下午
  */
 
 @Configuration
