@@ -1,5 +1,18 @@
 各种可用的工具合集
 
+> 工具合集引用方法
+
+```xml
+<!-- 目前版本：1.0 -->
+<dependencies>
+  <dependency>
+    <groupId>online.yangcloud</groupId>
+    <artifactId>yang-commons</artifactId>
+    <version>1.0</version>
+  </dependency>
+</dependencies>
+```
+
 > 可用依赖
 
 - `Hutool` - `Hutool`工具集，已集成到本依赖，无需再次添加
