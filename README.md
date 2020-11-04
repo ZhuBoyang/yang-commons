@@ -3,7 +3,7 @@
 > 工具合集引用方法
 
 ```xml
-<!-- 目前版本：1.0 -->
+<!-- 目前版本：1.2 -->
 <dependencies>
   <dependency>
     <groupId>online.yangcloud</groupId>
