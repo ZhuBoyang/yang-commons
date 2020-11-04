@@ -20,8 +20,8 @@
 > 更新中工具类
 
 - `ResponseResult` - `response` 统一返回格式
-- `JwtUtil` - `jwt token` 校验生成及验证
 - `PagerHelper` - 分页工具类（链式调用）
+- `SimpleDateFormatUtil` - 线程安全下的时间日期格式化类
 
 > 已添加配置（无需再次手动配置）
 
