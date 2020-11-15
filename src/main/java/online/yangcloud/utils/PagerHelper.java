@@ -16,17 +16,17 @@ public class PagerHelper<T> {
     /**
      * 页码偏移量（当前所在的页码数，比如第1页：offset = 1）
      */
-    private Integer offset;
+    private Integer offset = 1;
 
     /**
      * 每页显示的数量
      */
-    private Integer count;
+    private Integer count = 10;
 
     /**
      * 数据总量
      */
-    private Long total;
+    private Long total = 0L;
 
     /**
      * 每页的数据

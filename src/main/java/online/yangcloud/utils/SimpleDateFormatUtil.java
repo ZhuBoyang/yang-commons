@@ -19,13 +19,8 @@ public class SimpleDateFormatUtil {
     /**
      * 线程安全转换 String to Date
      */
-    public static Date safeParseDate(String dateStr) {
-        try {
-            return getFormat().parse(dateStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public static Date safeParseDate(String dateStr) throws ParseException {
+        return getFormat().parse(dateStr);
     }
 
     /**
@@ -50,4 +45,5 @@ public class SimpleDateFormatUtil {
     private static DateFormat getFormat() {
         return threadLocal.get();
     }
+
 }

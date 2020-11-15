@@ -10,6 +10,9 @@ import cn.hutool.http.HttpStatus;
 public class ResponseResult {
 
     private static final int HTTP_EXCEPTION = 555;
+    private static final String NONE_STRING = "";
+    private static final String SUCCESS = "success";
+    private static final String ERROR = "error";
 
     /**
      * 响应业务状态
@@ -39,28 +42,32 @@ public class ResponseResult {
         return new ResponseResult(status, msg, data, ok);
     }
 
+    public static ResponseResult ok(Object data) {
+        return new ResponseResult(HttpStatus.HTTP_OK, NONE_STRING, data);
+    }
+
     public static ResponseResult ok(String msg, Object data) {
         return new ResponseResult(HttpStatus.HTTP_OK, msg, data);
     }
 
     public static ResponseResult ok() {
-        return new ResponseResult("");
+        return new ResponseResult(NONE_STRING);
     }
 
     public static ResponseResult errorMsg(String msg) {
-        return new ResponseResult(HttpStatus.HTTP_INTERNAL_ERROR, msg, "");
+        return new ResponseResult(HttpStatus.HTTP_INTERNAL_ERROR, msg, NONE_STRING);
     }
 
     public static ResponseResult errorMap(Object data) {
-        return new ResponseResult(HttpStatus.HTTP_NOT_IMPLEMENTED, "error", data);
+        return new ResponseResult(HttpStatus.HTTP_NOT_IMPLEMENTED, ERROR, data);
     }
 
     public static ResponseResult errorTokenMsg(String msg) {
-        return new ResponseResult(HttpStatus.HTTP_BAD_GATEWAY, msg, "");
+        return new ResponseResult(HttpStatus.HTTP_BAD_GATEWAY, msg, NONE_STRING);
     }
 
     public static ResponseResult errorException(String msg) {
-        return new ResponseResult(HTTP_EXCEPTION, msg, "");
+        return new ResponseResult(HTTP_EXCEPTION, msg, NONE_STRING);
     }
 
     private ResponseResult() {
