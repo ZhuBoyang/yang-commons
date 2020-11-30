@@ -1,6 +1,8 @@
 package online.yangcloud.utils;
 
 import cn.hutool.core.util.StrUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -14,6 +16,7 @@ import java.util.Objects;
 
 public class IpUtil {
 
+    private static final Logger logger = LoggerFactory.getLogger(IpUtil.class);
     private static final String ip = "127.0.0.1";
     private static final String unknown = "unknown";
 
@@ -25,7 +28,7 @@ public class IpUtil {
      * @author zhuby
      * @since 2020/11/13 11:17 上午
      */
-    public static String getIpAddr(HttpServletRequest req) {
+    public static String getIpAddr(HttpServletRequest req) throws UnknownHostException {
         String ipAddress = req.getHeader("x-forwarded-for");
         if (StrUtil.isBlank(ipAddress) || ipAddress.length() == 0 || unknown.equalsIgnoreCase(ipAddress)) {
             ipAddress = req.getHeader("x-client-ip");
@@ -46,11 +49,13 @@ public class IpUtil {
             ipAddress = req.getRemoteAddr();
             if (ip.equals(ipAddress)) {
                 // 根据网卡取本机配置的IP
-                InetAddress inet = null;
+                InetAddress inet;
                 try {
                     inet = InetAddress.getLocalHost();
                 } catch (UnknownHostException e) {
                     System.out.println("getIpAddr : " + e.getMessage());
+                    logger.info("ip addr error : {}", e.getMessage());
+                    throw e;
                 }
                 if (Objects.nonNull(inet)) {
                     ipAddress = inet.getHostAddress();

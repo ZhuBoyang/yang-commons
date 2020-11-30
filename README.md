@@ -3,12 +3,12 @@
 > 工具合集引用方法
 
 ```xml
-<!-- 目前版本：1.3 -->
+<!-- 目前版本：1.4 -->
 <dependencies>
   <dependency>
     <groupId>online.yangcloud</groupId>
     <artifactId>yang-commons</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
   </dependency>
 </dependencies>
 ```
@@ -16,6 +16,7 @@
 > 可用依赖
 
 - `Hutool` - `Hutool`工具集，已集成到本依赖，无需再次添加。相关依赖可以点击<a target="_blank" href="https://hutool.cn/">官网</a>
+- `slf4j` - 日志依赖
 
 > 更新中工具类
 
@@ -53,6 +54,17 @@ public static String safeFormatDate(Date date)
 ```java
 // 获取请求的 IP 地址
 static String getIpAddr(HttpServletRequest req)
+```
+- `CurrentTimeGetter` - 获取当前时间的时间戳
+```java
+// 如果系统自带的System.currentTimeMillis()满足需求和效率的情况下，不需要使用本类中的方法
+public static long now()
+```
+- `ImageUtil` - 图像相关工具
+```java
+// 改变图片的尺寸
+// 各参数含义: 新的图片宽度 | 新的图片高度 | 要修改的文件的源路径 | 文件输出路径 | 输出的文件的类型(png等)
+public static boolean changeSize(int newWidth, int newHeight, String filePath, String outputPath, String imageExtType)
 ```
 
 > 已添加配置（无需再次手动配置）
