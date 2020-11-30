@@ -3,12 +3,12 @@
 > 工具合集引用方法
 
 ```xml
-<!-- 目前版本：1.4 -->
+<!-- 目前版本：1.5 -->
 <dependencies>
   <dependency>
     <groupId>online.yangcloud</groupId>
     <artifactId>yang-commons</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
   </dependency>
 </dependencies>
 ```
